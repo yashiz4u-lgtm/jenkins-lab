@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         jdk 'Java'
+        maven 'Maven'
     }
 
     stages {
@@ -14,13 +15,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'echo Building with Maven...'
+                sh 'mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'echo Running tests...'
+                sh 'mvn test'
             }
         }
     }
