@@ -14,13 +14,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Building project...'
+                sh 'echo Building with Maven...'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Testing project...'
+                sh 'echo Running tests...'
             }
         }
     }
