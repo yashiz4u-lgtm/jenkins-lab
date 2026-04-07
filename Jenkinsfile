@@ -1,22 +1,26 @@
 pipeline {
     agent any
 
+    tools {
+        jdk 'Java'
+    }
+
     stages {
         stage('Clone') {
             steps {
-                echo 'Cloning from GitHub...'
+                git 'https://github.com/yashiz4u-lgtm/jenkins-lab.git'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building project...'
+                sh 'mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Testing project...'
+                sh 'mvn test'
             }
         }
     }
